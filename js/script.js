@@ -82,14 +82,15 @@ function dayAndMonthBirthday(birthday) {
 class Human {
   constructor(options) {
     this.name = options.name;
-    this.birhday = options.birhday; 
-    // birthday strong format dd.mm.yyyy becouse function in interactor doesn't generic type
+    this.birhday = options.birhday;
+    // birthday strong format dd.mm.yyyy becouse function doesn't generic type in interactor
   }
 
   get age() {
     return birthdayDateToAge(this.birhday);
   }
 }
+
 // Class student inherit Human
 class Student extends Human {
   constructor(options) {
@@ -100,6 +101,7 @@ class Student extends Human {
     this.srcImage = options.srcImage;
   }
 }
+
 // Student Objects
 //TODO: use json
 const stud = new Student({
@@ -162,6 +164,7 @@ const stud6 = new Student({
 var students = [stud, stud2, stud3, stud4, stud5, stud6];
 
 // ---------------Presenter----------------------
+
 /**
  * Get stack element
  */
@@ -205,7 +208,7 @@ function renderCardPersonList(srcImage, title, subtitle) {
 }
 
 /**
- * Event Lister add to mouseeover
+ * Event Lister add to mouseover
  */
 function addEventListenerToHover() {
   let className = getStackElements();
@@ -242,22 +245,40 @@ function openProfile(index) {
     students[index].age
   );
   element.classList.add("showProfile");
+  mouseOutProfileBlock();
 }
-/*
-//TODO: Найти способ куда вставить эту функцию
-function removeEventListenerToHover(func) {
-  let className = getStackElements();
-  [].forEach.call(className, function (el) {
-    el.removeEventListener("mouseover", func);
+
+/**
+ * Event Lister add to mouseout (profile block)
+ */
+function mouseOutProfileBlock() {
+  let element = getStackElements();
+  [].forEach.call(element, function (el) {
+    el.addEventListener("mouseout", closeProfile);
   });
 }
 
+/**
+ * Remove event listener
+ * @param {*} text name mouse movements
+ * @param {*} func mouse movement function
+ */
+function removeEventListenerToHover(text, func) {
+  let className = getStackElements();
+  [].forEach.call(className, function (el) {
+    el.removeEventListener(text, func);
+  });
+}
+
+/**
+ * Close profile block and hide him. And remove all event listeners
+ */
 function closeProfile() {
   let element = document.querySelector(".profile");
-    removeEventListenerToHover(openProfile)
-    element.classList.remove("showProfile");
+  removeEventListenerToHover("mouseover", openProfile);
+  removeEventListenerToHover("mouseout", mouseOutProfileBlock);
+  element.classList.remove("showProfile");
 }
-*/
 
 /**
  * Render card person list in html file
@@ -282,9 +303,7 @@ function renderProfileList(title, birthday, number, srcImage, age) {
           <div class="card_profile_info">
             <p class="card_profile__title">${title}</p>
             <div class="card_profile_date">
-              <span class="card_profile__text text_lightgray"
-                >День рождения</span
-              >
+              <span class="card_profile__text text_lightgray">День рождения</span>
               <span class="card_profile__text">${dayAndMonthBirthday(
                 birthday
               )}, ${age} лет</span>
@@ -295,10 +314,10 @@ function renderProfileList(title, birthday, number, srcImage, age) {
               <img class="card_profile__img" src="img/sms.png" alt="Смс" />
               <a href="#" class="card_profile_friends__link">Друзья 256</a>
               <div class="card_profile_friends_ava">
-              <img class="card_profile__ava" src="img/ava4.png" alt="Пачка аватарок" />
-              <img class="card_profile__ava" src="img/ava5.png" alt="Пачка аватарок" />
-              <img class="card_profile__ava" src="img/ava6.png" alt="Пачка аватарок" />
-              <img class="card_profile__ava" src="img/ava5.png" alt="Пачка аватарок" />
+                <img class="card_profile__ava" src="img/ava4.png" alt="Пачка аватарок" />
+                <img class="card_profile__ava" src="img/ava5.png" alt="Пачка аватарок" />
+                <img class="card_profile__ava" src="img/ava6.png" alt="Пачка аватарок" />
+                <img class="card_profile__ava" src="img/ava5.png" alt="Пачка аватарок" />
               </div>
             </div>
           </div>

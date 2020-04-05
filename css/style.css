@@ -145,7 +145,6 @@ body {
   z-index: -1;
 }
 
-
 /* Profile div */
 .profile {
   display: none;
@@ -155,22 +154,14 @@ body {
   width: 420px;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   cursor: default;
+
+  /*Расположение профиля, использовать в дальнейшем для правильного отображения */
+  top: 100px;
+  left: 100px;
 }
 
 .showProfile {
   display: block;
-}
-
-/* Background cover */
-.cover {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 900;
-  width: 100%;
-  height: 100%;
-  background-color: gray;
-  opacity: 0.3;
 }
 
 /* Card profile */
@@ -272,7 +263,6 @@ body {
   z-index: 1;
 }
 
-
 /* Landscape modes */
 
 @media screen and (max-width: 650px) {
@@ -319,4 +309,3 @@ body {
     bottom: 16px;
   }
 }
-
