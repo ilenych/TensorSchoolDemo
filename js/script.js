@@ -1,89 +1,5 @@
-// Create and show cover behind profile card
-// function showCover() {
-//   let coverDiv = document.createElement("div");
-//   coverDiv.className = "cover";
-
-//   document.body.style.overflowY = "hidden";
-
-//   document.body.append(coverDiv);
-// }
-
-//Hide and remove cover behind profile card
-// function hideCover() {
-//   var search = document.getElementsByClassName("cover");
-//   [].forEach.call(search, function(el) {
-//     el.remove();
-//   });
-//   document.body.style.overflowY = "";
-// }
-
-//Add event listener
-function addEventListenerToClick(text) {
   var className = document.getElementsByClassName(text);
-  [].forEach.call(className, function (el) {
-    el.addEventListener(
-      "mouseover",
-      text == "card_person" ? showProfile : closeProfile
-    );
-  });
-}
-// Remove event listenet
-function removeEventListenerToClick(text, func) {
-  var className = document.getElementsByClassName(text);
-  [].forEach.call(className, function (el) {
-    el.removeEventListener("mouseout", func);
-  });
-}
-
-// Add observer
-addEventListenerToClick("card_person");
-addEventListenerToClick("card_profile__img");
-
-//Show profile to click
-function showProfile() {
-  var element = document.querySelector(".profile");
-  element.classList.add("showProfile");
-  // showCover();
-  // removeEventListenerToClick("card_person", showCover);
-}
-//Close profile to click
-function closeProfile() {
-  var element = document.querySelector(".profile");
-  element.classList.remove("showProfile");
-  // hideCover();
-  // removeEventListenerToClick("card_profile__img", closeProfile);
-}
-
-// Попытка отобразить данные
-
-// // нарушен DRY
-// var article = document.getElementsByClassName('card_person');
-//   console.log("kd");
-//     [].forEach.call(article, function(el, i, array) {
-//         data.push(el.dataset);
-//         // console.log(data);
-//         // console.log(i)
-//         // console.log(array)
-//   });
-
-// var elem2 = document.getElementsByClassName("js-profile-name");
-// [].forEach.call(elem2, function(el, i) {
-//     el.innerHTML = data[0].name //   как сделать по index.row?
-//     console.log(elem2)
-//   });
-
-// var elem3 = document.getElementsByClassName("js-profile-birth");
-// [].forEach.call(elem3, function(el, i) {
-//     el.innerHTML = data[0].birth
-//   });
-
-//   var elem4 = document.getElementsByClassName("js-profile-phone");
-// [].forEach.call(elem4, function(el, i) {
-//     el.innerHTML = data[0].phone
-//   });
-
-// ************************************************************** 
-
+// ---------------Interactor----------------------
 /**
  * change date format for Date()
  * @param {birthday} option date format in YYYY:MM:DD than MM and DD is array from 0 to 11
@@ -91,39 +7,89 @@ function closeProfile() {
  */
 function changeBirthdayDateFormat(birthday) {
   let array = birthday.split(".").reverse();
-  array[1] = array[1].slice(1) - 1;
-  array.join(',');
+  if (array[1] < 10) {
+    array[1] = array[1].slice(1) - 1;
+  }
+  array.join(",");
 
   return array;
 }
+/**
+ * Function for conversion birthday to age
+ * @param {*} birthday - string as DD.MM.YYYYY
+ */
 
-//Function for conversion birthday to age
 function birthdayDateToAge(birthday) {
-  let now = new Date(); 
+  let now = new Date();
   let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-  let changeDateFormat = changeBirthdayDateFormat(birthday)
+  let changeDateFormat = changeBirthdayDateFormat(birthday); //fif
 
   let bd = new Date(changeDateFormat);
-  let bdnow = new Date(now.getFullYear(), bd.getMonth(), bd.getDate()); 
-  let age; 
+  let bdnow = new Date(now.getFullYear(), bd.getMonth(), bd.getDate());
+  let age;
 
   age = today.getFullYear() - bd.getFullYear();
 
   return today < bdnow ? age - 1 : age;
 }
 
+/**
+ * Function for conversion number months to string name
+ * @param {*} birthday - string as DD.MM.YYYYY
+ */
+
+function changeMonthFromNumberToString(birthday) {
+  let months = [
+    "янв",
+    "фев",
+    "мар",
+    "апр",
+    "май",
+    "инь",
+    "иль",
+    "авг",
+    "сен",
+    "окт",
+    "ноя",
+    "дек",
+  ];
+  let array = birthday.split(".");
+  let month = array[1] - 1;
+  if (array[1] < 10) {
+    month = array[1].slice(1) - 1;
+  }
+  for (let i in months) {
+    if (month == i) {
+      return months[i];
+    }
+  }
+}
+
+/**
+ * Function for format - day(number) and month(string)
+ * @param {*} birthday - string as DD.MM.YYYYY
+ */
+
+function dayAndMonthBirthday(birthday) {
+  let day = birthday.substring(0, 2);
+  let month = changeMonthFromNumberToString(birthday);
+  return `${day} ${month}`;
+}
+
+// ---------------MODEL----------------------
+
 // class Human
 class Human {
   constructor(options) {
     this.name = options.name;
-    this.birhday = options.birhday;
+    this.birhday = options.birhday; 
+    // birthday strong format dd.mm.yyyy becouse function in interactor doesn't generic type
   }
 
   get age() {
     return birthdayDateToAge(this.birhday);
   }
-
 }
 // Class student inherit Human
 class Student extends Human {
@@ -142,63 +108,74 @@ const stud = new Student({
   birhday: "19.03.1998",
   university: "УГАТУ",
   course: "2 курс",
-  number: "89176457436",
+  number: "+7 (917) 123-45-18",
   srcImage: "img/ava1.png",
 });
 
 const stud2 = new Student({
   name: "Миша Петров",
-  birhday: "22 апр, 18 лет",
+  birhday: "22.04.2002",
   university: "СурГУ",
   course: "1 курс",
-  number: "89176457436",
+  number: "+7 (917) 136-85-46",
   srcImage: "img/ava2.png",
 });
 
 const stud3 = new Student({
   name: "Марат Сидоров",
-  birhday: "7 сен, 23 лет",
+  birhday: "07.10.1997",
   university: "БГУ",
   course: "4 курс",
-  number: "89176457436",
+  number: "+7 (917) 190-74-27",
   srcImage: "img/ava3.png",
 });
 
 const stud4 = new Student({
   name: "Олег Иванов",
-  birhday: "7 сен, 22 лет",
+  birhday: "10.11.1998",
   university: "БГУ",
   course: "4 курс",
-  number: "89176457436",
+  number: "+7 (917) 147-28-83",
   srcImage: "img/ava2.png",
 });
 
 const stud5 = new Student({
   name: "Костя Марьин",
-  birhday: "14 фев, 21 лет",
+  birhday: "14.02.1999",
   university: "УГАТУ",
   course: "4 курс",
-  number: "89176457436",
+  number: "+7 (917) 233-94-10",
   srcImage: "img/ava3.png",
 });
 
 const stud6 = new Student({
   name: "Ильдар Янышев",
-  birhday: "7 сен, 18 лет",
+  birhday: "15.09.1998",
   university: "БГУ",
   course: "1 курс",
-  number: "89176457436",
+  number: "+7 (917) 127-75-54",
   srcImage: "img/ava1.png",
 });
 
-
 //Array students
 //TODO: use function for add new student in the future
+
 var students = [stud, stud2, stud3, stud4, stud5, stud6];
 
-// Set options for Card Person
+// ---------------Presenter----------------------
+/**
+ * Get stack element
+ */
+
+function getStackElements() {
+  return document.getElementsByClassName("card_person");
+}
+/**
+ *  Set options for Card Person
+ */
+
 function setCardPerson() {
-  var className = document.getElementsByClassName("card_person");
+  let className = getStackElements();
   if (className.length == students.length) {
     [].forEach.call(className, function (el, i) {
       el.innerHTML = renderCardPersonList(
@@ -221,16 +198,108 @@ setCardPerson();
  */
 
 function renderCardPersonList(srcImage, title, subtitle) {
-  //FIXME: Не нравиться переност строки через \
-  return `<img class="card__img card__img_round" \
-                src=${srcImage}\
-                alt="Аватар">\
-            <p class="card__title" title="Фамилия Имя">${title}</p> \
+  return `<img class="card__img card__img_round" 
+                src=${srcImage}
+                alt="Аватар">
+            <p class="card__title" title="Фамилия Имя">${title}</p> 
             <span class="card__description" title="ВУЗ Курс">${subtitle}</span>`;
 }
 
+/**
+ * Event Lister add to mouseeover
+ */
+function addEventListenerToHover() {
+  let className = getStackElements();
+  [].forEach.call(className, function (el) {
+    el.addEventListener(
+      "mouseover",
+      // text == "card_person" ? showProfile : closeProfile
+      prepareProfile
+    );
+  });
+}
 
+addEventListenerToHover();
 
+/**
+ * Prepare profile before display on screen
+ */
+function prepareProfile() {
+  let element = event.currentTarget;
+  openProfile(element.dataset.id);
+}
 
+/**
+ * Display profile on screen
+ * @param {*} index - elvent.currentTarget.dataset.id
+ */
+function openProfile(index) {
+  let element = document.querySelector(".profile");
+  element.innerHTML = renderProfileList(
+    students[index].name,
+    students[index].birhday,
+    students[index].number,
+    students[index].srcImage,
+    students[index].age
+  );
+  element.classList.add("showProfile");
+}
+/*
+//TODO: Найти способ куда вставить эту функцию
+function removeEventListenerToHover(func) {
+  let className = getStackElements();
+  [].forEach.call(className, function (el) {
+    el.removeEventListener("mouseover", func);
+  });
+}
 
+function closeProfile() {
+  let element = document.querySelector(".profile");
+    removeEventListenerToHover(openProfile)
+    element.classList.remove("showProfile");
+}
+*/
 
+/**
+ * Render card person list in html file
+ * @param {*} title - student name - string
+ * @param {*} birthday - student birhday - string
+ * @param {*} number - numbeer phone - string
+ * @param {*} srcImage - url image - sctring
+ * @param {*} age - get parameter in student class
+ */
+
+function renderProfileList(title, birthday, number, srcImage, age) {
+  return `<div class="card_profile">
+          <p class="card_profile__text text_lightgray">Была сегдня в 16:36</p>
+          <img
+            class="card_profile__img"
+            src="img/close.png"
+            alt="Закрыть"
+            title="Закрыть"
+          />
+        </div>
+        <div class="card_profile">
+          <div class="card_profile_info">
+            <p class="card_profile__title">${title}</p>
+            <div class="card_profile_date">
+              <span class="card_profile__text text_lightgray"
+                >День рождения</span
+              >
+              <span class="card_profile__text">${dayAndMonthBirthday(
+                birthday
+              )}, ${age} лет</span>
+              <span class="card_profile__text text_lightgray">Телефон</span>
+              <span class="card_profile__text">${number}</span>
+            </div>
+            <div class="card_profile_friends">
+              <img class="card_profile__img" src="img/sms.png" alt="Смс" />
+              <p>Друзья 256</p>
+              <img class="card_profile__img" src="img/close.png" alt="Пачка аватарок" />
+            </div>
+          </div>
+          <div class="card_profile_photoContainer">
+            <img class="card_profile__img" src="${srcImage}" alt="Аватар" />
+          </div>
+        </div>`;
+}
