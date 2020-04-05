@@ -1,4 +1,3 @@
-  var className = document.getElementsByClassName(text);
 // ---------------Interactor----------------------
 /**
  * change date format for Date()
@@ -109,7 +108,7 @@ const stud = new Student({
   university: "УГАТУ",
   course: "2 курс",
   number: "+7 (917) 123-45-18",
-  srcImage: "img/ava1.png",
+  srcImage: "img/avaava.jpg",
 });
 
 const stud2 = new Student({
@@ -118,7 +117,7 @@ const stud2 = new Student({
   university: "СурГУ",
   course: "1 курс",
   number: "+7 (917) 136-85-46",
-  srcImage: "img/ava2.png",
+  srcImage: "img/ava6.png",
 });
 
 const stud3 = new Student({
@@ -127,7 +126,7 @@ const stud3 = new Student({
   university: "БГУ",
   course: "4 курс",
   number: "+7 (917) 190-74-27",
-  srcImage: "img/ava3.png",
+  srcImage: "img/ava4.png",
 });
 
 const stud4 = new Student({
@@ -136,7 +135,7 @@ const stud4 = new Student({
   university: "БГУ",
   course: "4 курс",
   number: "+7 (917) 147-28-83",
-  srcImage: "img/ava2.png",
+  srcImage: "img/ava5.png",
 });
 
 const stud5 = new Student({
@@ -145,7 +144,7 @@ const stud5 = new Student({
   university: "УГАТУ",
   course: "4 курс",
   number: "+7 (917) 233-94-10",
-  srcImage: "img/ava3.png",
+  srcImage: "img/ava4.png",
 });
 
 const stud6 = new Student({
@@ -154,7 +153,7 @@ const stud6 = new Student({
   university: "БГУ",
   course: "1 курс",
   number: "+7 (917) 127-75-54",
-  srcImage: "img/ava1.png",
+  srcImage: "img/ava6.png",
 });
 
 //Array students
@@ -294,8 +293,13 @@ function renderProfileList(title, birthday, number, srcImage, age) {
             </div>
             <div class="card_profile_friends">
               <img class="card_profile__img" src="img/sms.png" alt="Смс" />
-              <p>Друзья 256</p>
-              <img class="card_profile__img" src="img/close.png" alt="Пачка аватарок" />
+              <a href="#" class="card_profile_friends__link">Друзья 256</a>
+              <div class="card_profile_friends_ava">
+              <img class="card_profile__ava" src="img/ava4.png" alt="Пачка аватарок" />
+              <img class="card_profile__ava" src="img/ava5.png" alt="Пачка аватарок" />
+              <img class="card_profile__ava" src="img/ava6.png" alt="Пачка аватарок" />
+              <img class="card_profile__ava" src="img/ava5.png" alt="Пачка аватарок" />
+              </div>
             </div>
           </div>
           <div class="card_profile_photoContainer">

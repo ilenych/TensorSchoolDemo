@@ -94,6 +94,7 @@ body {
 
 .card__img_round {
   border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Person block*/
@@ -219,6 +220,8 @@ body {
   margin: 10px;
   height: 120px;
   width: 120px;
+  background-color: black;
+  object-fit: cover;
   border-radius: 2%;
   cursor: default;
 }
@@ -235,7 +238,7 @@ body {
 
 .card_profile_friends {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-top: 10px;
   margin-left: 10px;
@@ -246,8 +249,29 @@ body {
   height: 25px;
   border-radius: 50%;
   margin: 0;
+  margin-left: -16px;
   background-color: black;
 }
+
+.card_profile_friends__link {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.card_profile__ava {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: -16px;
+  object-fit: cover;
+  position: relative;
+  cursor: pointer;
+  background-color: black;
+}
+.card_profile__ava:hover {
+  z-index: 1;
+}
+
 
 /* Landscape modes */
 
