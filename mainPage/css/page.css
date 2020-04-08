@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+}
+/* Body */
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color:#FBF7F8;
+  font-size: 14px;
+  cursor: default;
+  /* flex-direction: column; */
+  /* align-items: center; */
+}
+
+/* Header card blok modfier */
+
+.header {
+  max-width: 1100px;
+  height: 40px;
+  margin: 10px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  background-color: #32415D;
+}
+
+.header__title {
+  margin-left: 10px;
+  flex-basis: 90%;
+  color: white;
+  font-size: 14px;
+}
+
+.header__ava {
+  background-color: blueviolet;
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.header__img {
+  color: white;
+  object-fit: cover;
+  width: 30px;
+  height: 40px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1080px;
+  background-color: yellow;
+}
+
+.main_left {
+  background-color: rebeccapurple;
+  flex-basis: 66%;
+  margin-right: 10px;
+}
+
+.main_right {
+  background-color: violet;
+  flex-grow: 1;
+}
+
+/* Main card block modfier */
+
+/* block1 */
+.block1 {
+  margin: 10px 0;
+padding: 8px 10px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+/* About */
+.main_left_about {
+  margin: 0 10px;
+  padding: 15px 0;
+}
+.main_left_about__title {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.main_left_about__subtitle {
+  margin: 15px auto;
+}
+
+/* Info */
+.main_left_info {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  margin: 10px;
+  justify-content: start;
+}
+
+.main_left_info__title {
+  margin: 8px 0;
+}
+
+.main_left_info__more {
+  color: blue;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* block2 */
+
+/* Photo */
+
+.main_left_photos {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main_left_photos__img {
+  object-fit: cover;
+  margin: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 4px;
+}
+
+
+/* More */
+
+.text_lightgray {
+  color: lightgray;
+}
+/*
+@media screen and (max-width: 650px) {
+  .person {
+    grid-template-columns: 1fr;
+  }
+}
+*/
+/* Portrait modes */
+/*
+@media screen and (max-width: 650px) {
+  .card_header {
+    margin: 16px 16px;
+  }
+
+  .card_header .card__title {
+    font-size: 30px;
+  }
+
+  .card_person {
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    width: 80%;
+  }
+
+  .card_person .card__img {
+    width: 100px;
+    height: 100px;
+    grid-row: span 2 / auto;
+  }
+
+  .card_person .card__title {
+    align-self: end;
+  }
+
+  .card_person .card__title,
+  .card_person .card__description {
+    text-align: left;
+  }
+*/
+
+/* Shadow behind card */
+/*
+  .card_person:hover:after {
+    height: calc(100% - 40px);
+    bottom: 16px;
+  }
+}
+*/
