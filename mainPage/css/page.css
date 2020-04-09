@@ -15,7 +15,7 @@ body {
 /* Header card blok modfier */
 
 .header {
-  max-width: 1100px;
+  max-width: 1020px;
   height: 40px;
   margin: 10px auto 0;
   display: flex;
@@ -51,7 +51,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 1000px;
   background-color: yellow;
 }
 
@@ -126,6 +126,32 @@ padding: 8px 10px;
   border-radius: 4px;
 }
 
+/* Ava */
+.main_right__ava {
+  padding: 5px;
+  height: 400px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* menu */
+.main_right_menu {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: tomato;
+}
+.main_right_menu__img {
+  object-fit: cover;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border-width: 2px;
+}
+.main_right_menu_department{
+  margin: 0 auto;
+}
 
 /* More */
 
