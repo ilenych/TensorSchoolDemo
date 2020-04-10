@@ -15,7 +15,7 @@ function changeBirthdayDateFormat(birthday) {
 }
 /**
  * Function for conversion birthday to age
- * @param {*} birthday - string as DD.MM.YYYYY
+ * @param {string} birthday - string as DD.MM.YYYYY
  */
 
 function birthdayDateToAge(birthday) {
@@ -35,7 +35,7 @@ function birthdayDateToAge(birthday) {
 
 /**
  * Function for conversion number months to string name
- * @param {*} birthday - string as DD.MM.YYYYY
+ * @param {string} birthday - string as DD.MM.YYYYY
  */
 
 function changeMonthFromNumberToString(birthday) {
@@ -58,16 +58,12 @@ function changeMonthFromNumberToString(birthday) {
   if (array[1] < 10) {
     month = array[1].slice(1) - 1;
   }
-  for (let i in months) {
-    if (month == i) {
-      return months[i];
-    }
-  }
+   return months[month]
 }
 
 /**
  * Function for format - day(number) and month(string)
- * @param {*} birthday - string as DD.MM.YYYYY
+ * @param {string} birthday - string as DD.MM.YYYYY
  */
 
 function dayAndMonthBirthday(birthday) {
@@ -82,12 +78,12 @@ function dayAndMonthBirthday(birthday) {
 class Human {
   constructor(options) {
     this.name = options.name;
-    this.birhday = options.birhday;
+    this.birthday = options.birthday;
     // birthday strong format dd.mm.yyyy becouse function doesn't generic type in interactor
   }
 
   get age() {
-    return birthdayDateToAge(this.birhday);
+    return birthdayDateToAge(this.birthday);
   }
 }
 
@@ -106,7 +102,7 @@ class Student extends Human {
 //TODO: use json
 const stud = new Student({
   name: "Маша Иванова",
-  birhday: "19.03.1998",
+  birthday: "19.03.1998",
   university: "УГАТУ",
   course: "2 курс",
   number: "+7 (917) 123-45-18",
@@ -115,7 +111,7 @@ const stud = new Student({
 
 const stud2 = new Student({
   name: "Миша Петров",
-  birhday: "22.04.2002",
+  birthday: "22.04.2002",
   university: "СурГУ",
   course: "1 курс",
   number: "+7 (917) 136-85-46",
@@ -124,7 +120,7 @@ const stud2 = new Student({
 
 const stud3 = new Student({
   name: "Марат Сидоров",
-  birhday: "07.10.1997",
+  birthday: "07.10.1997",
   university: "БГУ",
   course: "4 курс",
   number: "+7 (917) 190-74-27",
@@ -133,7 +129,7 @@ const stud3 = new Student({
 
 const stud4 = new Student({
   name: "Олег Иванов",
-  birhday: "10.11.1998",
+  birthday: "10.11.1998",
   university: "БГУ",
   course: "4 курс",
   number: "+7 (917) 147-28-83",
@@ -142,7 +138,7 @@ const stud4 = new Student({
 
 const stud5 = new Student({
   name: "Костя Марьин",
-  birhday: "14.02.1999",
+  birthday: "14.02.1999",
   university: "УГАТУ",
   course: "4 курс",
   number: "+7 (917) 233-94-10",
@@ -151,7 +147,7 @@ const stud5 = new Student({
 
 const stud6 = new Student({
   name: "Ильдар Янышев",
-  birhday: "15.09.1998",
+  birthday: "15.09.1998",
   university: "БГУ",
   course: "1 курс",
   number: "+7 (917) 127-75-54",
@@ -202,9 +198,9 @@ setCardPerson();
 function renderCardPersonList(srcImage, title, subtitle) {
   return `<img class="card__img card__img_round" 
                 src=${srcImage}
-                alt="Аватар">
-            <p class="card__title" title="Фамилия Имя">${title}</p> 
-            <span class="card__description" title="ВУЗ Курс">${subtitle}</span>`;
+                alt="Аватар ${title}">
+            <p class="card__title" title="${title}">${title}</p> 
+            <span class="card__description" title="${subtitle}">${subtitle}</span>`;
 }
 
 /**
@@ -233,17 +229,11 @@ function prepareProfile() {
 
 /**
  * Display profile on screen
- * @param {*} index - elvent.currentTarget.dataset.id
+ * @param {string} index - elvent.currentTarget.dataset.id
  */
 function openProfile(index) {
   let element = document.querySelector(".profile");
-  element.innerHTML = renderProfileList(
-    students[index].name,
-    students[index].birhday,
-    students[index].number,
-    students[index].srcImage,
-    students[index].age
-  );
+  element.innerHTML = renderProfileList(students[index]);
   element.classList.add("showProfile");
   mouseOutProfileBlock();
 }
@@ -260,8 +250,8 @@ function mouseOutProfileBlock() {
 
 /**
  * Remove event listener
- * @param {*} text name mouse movements
- * @param {*} func mouse movement function
+ * @param {string} text name mouse movements
+ * @param {finction} func mouse movement function
  */
 function removeEventListenerToHover(text, func) {
   let className = getStackElements();
@@ -282,14 +272,14 @@ function closeProfile() {
 
 /**
  * Render card person list in html file
- * @param {*} title - student name - string
- * @param {*} birthday - student birhday - string
- * @param {*} number - numbeer phone - string
- * @param {*} srcImage - url image - sctring
- * @param {*} age - get parameter in student class
+ * @param {string} name - student name - string
+ * @param {string} birthday - student birthday - string
+ * @param {string} number - numbeer phone - string
+ * @param {string} srcImage - url image - sctring
+ * @param {get} age - get parameter in student class
  */
 
-function renderProfileList(title, birthday, number, srcImage, age) {
+function renderProfileList({name, birthday, number, srcImage, age}) {
   return `<div class="card_profile">
           <p class="card_profile__text text_lightgray">Была сегдня в 16:36</p>
           <img
@@ -301,7 +291,7 @@ function renderProfileList(title, birthday, number, srcImage, age) {
         </div>
         <div class="card_profile">
           <div class="card_profile_info">
-            <p class="card_profile__title">${title}</p>
+            <p class="card_profile__title">${name}</p>
             <div class="card_profile_date">
               <span class="card_profile__text text_lightgray">День рождения</span>
               <span class="card_profile__text">${dayAndMonthBirthday(
