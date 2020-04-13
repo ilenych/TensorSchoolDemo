@@ -6,7 +6,7 @@
     <title>Моя Страница</title>
     <link rel="stylesheet" href="./css/page.css" />
     <link rel="stylesheet" href="./css/normalize.css" />
-    <!-- <script src="./js/script.js" async></script> -->
+    <script src="./js/post.js" async></script>
   </head>
   <body>
     <div class="wraper">
@@ -71,6 +71,8 @@
             </div>
           </div>
 
+          <!-- <div id ="Poop" class="test"> hkg</div> -->
+
           <div class="block1">
             <div class="main_left_post">
               <div class="main_left_post_header">
@@ -86,30 +88,38 @@
                   <img class="content__img" src="img/postImage.jpg" alt="post">
               </div>
               <div class="main_left_post_like">
-                <div class="like_smiles">
+                <div class="like_smiles" data-id="0">
                   <img class="like_smiles__img"src="img/fire.png" alt="fire">
-                  <span class="like_smiles__text">10</span>
+                  <span class="like_smiles__text" >10</span>
                 </div>
-                <div class="like_smiles">
+                <div class="like_smiles" data-id="1">
                   <img class="like_smiles__img"src="img/heartEyes.png" alt="heart eyes">
-                  <span class="like_smiles__text">264</span>
+                  <span class="like_smiles__text" >264</span>
                 </div>
-                <div class="like_smiles">
+                <div class="like_smiles" data-id="2">
                   <img class="like_smiles__img"src="img/rocket.png" alt="rocket">
-                  <span class="like_smiles__text">1</span>
+                  <span class="like_smiles__text" >1</span>
                 </div>
-                <div class="like_smiles">
+                <div class="like_smiles" data-id="3">
                   <img class="like_smiles__img"src="img/like.png" alt="like">
                   <span class="like_smiles__text">256</span>
                 </div>
-                <div class="like_smiles">
+                <div class="like_smiles" data-id="4">
                   <img class="like_smiles__img"src="img/bomb.png" alt="bomb">
                   <span class="like_smiles__text">100</span>
                 </div>
-                <div class="like_smiles like_smiles_comment">
+                <div class="like_smiles_comment">
                   <img class="like_smiles__img"src="img/comment.png" alt="comment">
-                  <span class="like_smiles__text">100</span>
+                  <span class="like_smiles__text" data-id="6">100</span>
                 </div>
+              </div>
+              <div class="main_left_post_comments">
+                <img class="comments__ava" src="img/avaava.jpg" alt="Аватар">
+                <p class="comments__name">Mark tools</p>
+                <span class="comments__text">В 1996-ом году Джилл становится членом S.T.A.R.S., подразделения
+                  полиции в Раккун-Сити. До поступления, служила в армии
+                  США.</span>
+                <p class="comments__time text_lightgray"> today 16:23</p>
               </div>
               <div class="main_left_post_comments">
                 <img class="comments__ava" src="img/avaava.jpg" alt="Аватар">
@@ -121,7 +131,7 @@
               </div>
               <div class="main_left_post_sender">
                 <img class="sender__ava" src="img/avaava.jpg" alt="Аватар">
-                <textarea class="sender__textarea"></textarea>
+                <textarea id ="myTextarea" class="sender__textarea"></textarea>
                 <img class="sender__add" src="img/plus.png" alt="add">
                 <img class="sender__send" src="img/send.png" alt="send">
               </div>
@@ -129,7 +139,7 @@
           </div>
         </div>
     
-       
+      
         <div class="main_right">
           <div class="block1">
             <img class="main_right__ava" src="img/ava6.png" alt="Аватар">

@@ -189,6 +189,11 @@ body {
 .main_left_post_like {
   display: flex;
   cursor: pointer;
+  /* line */
+  border-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: lightgray;
+  padding-bottom: 10px;
 }
 
 .like_smiles {
@@ -210,7 +215,14 @@ body {
   margin-left: 3px;
 }
 
+.likeIsSelected {
+  color: green;
+  font-size: 1em;
+}
+
 .like_smiles_comment {
+  display: flex;
+  align-items: center;
   justify-content: flex-end;
   flex-grow: 1;
 }
@@ -222,11 +234,6 @@ body {
   grid-template-rows: 30px 1fr;
   align-items: center;
   font-size: 0.9em;
-  margin-top: 10px;
-  /* line */
-  border-width: 2px;
-  border-top-style: solid;
-  border-top-color: lightgray;
 }
 
 .comments__ava {
@@ -307,6 +314,8 @@ body {
 .text_lightgray {
   color: lightgray;
 }
+
+
 /*
 @media screen and (max-width: 650px) {
   .person {
