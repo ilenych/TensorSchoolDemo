@@ -1,0 +1,374 @@
+* {
+  margin: 0;
+}
+/* Body */
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #d1cccd;
+  font-size: 14px;
+  cursor: default;
+  /* flex-direction: column; */
+  /* align-items: center; */
+}
+
+/* Header card blok modfier */
+
+.header {
+  max-width: 1020px;
+  height: 40px;
+  margin: 10px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  background-color: #32415d;
+}
+
+.header__title {
+  margin-left: 10px;
+  flex-basis: 90%;
+  color: white;
+  font-size: 14px;
+}
+
+.header__ava {
+  /* background-color: blueviolet; */
+  object-fit: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.header__img {
+  color: white;
+  object-fit: cover;
+  width: 30px;
+  height: 40px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1000px;
+  /* background-color: yellow; */
+}
+
+.main_left {
+  /* background-color: rebeccapurple; */
+  flex-basis: 66%;
+  margin-right: 10px;
+}
+
+.main_right {
+  /* background-color: violet; */
+  flex-grow: 1;
+}
+
+/* Main card block modfier */
+
+/* block1 */
+.block1 {
+  margin: 10px 0;
+  padding: 8px 10px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+/* About */
+.main_left_about {
+  margin: 0 10px;
+  padding: 15px 0;
+}
+.main_left_about__title {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.main_left_about__subtitle {
+  margin: 15px auto;
+}
+
+/* Info */
+.main_left_info {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  margin: 10px;
+  justify-content: start;
+}
+
+.main_left_info__title {
+  margin: 8px 0;
+}
+
+.main_left_info__more {
+  color: blue;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Photo */
+
+.main_left_photos {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main_left_photos__img {
+  object-fit: cover;
+  margin: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 4px;
+}
+
+/* Post */ 
+.main_left_post {
+  padding: 10px 10px;
+}
+/* Post header */
+.main_left_post_header {
+  display: grid;
+  grid-template-columns: 70px 1fr 50px;
+  grid-template-rows: 30px 1fr;
+  grid-auto-flow: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.post_header__ava {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  grid-row: span 2 / auto;
+}
+
+.post_header__name {
+  font-size: 16px;
+  align-self: end;
+}
+
+.post_header__time {
+  align-self: start;
+}
+
+.post_header__delete {
+  width: 25px;
+  height: 25px;
+  justify-self: end;
+  align-self: start;
+  cursor: pointer;
+}
+
+/* Post content */
+.main_left_post_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main_left_post_content:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  margin: 10px;
+  background-color: lightgray;
+}
+.content__text {
+  align-self: flex-start;
+}
+
+.content__img {
+  margin-top: 10px;
+  width: 620px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+/* Post like */
+.main_left_post_like {
+  display: flex;
+  cursor: pointer;
+  /* line */
+  border-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: lightgray;
+  padding-bottom: 10px;
+}
+
+.like_smiles {
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 10px;
+}
+
+.like_smiles__img {
+  width: 25xp;
+  height: 25px;
+  object-fit: cover;
+}
+
+.like_smiles__text {
+  font-size: 0.9em;
+  margin-left: 3px;
+}
+
+.likeIsSelected {
+  color: green;
+  font-size: 1em;
+}
+
+.like_smiles_comment {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+/* Post comments */
+.main_left_post_comments {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: 30px 1fr;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.comments__ava {
+  margin-top: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  grid-row: span 3 / auto;
+  align-self: start;
+}
+
+/* Post sender */
+.main_left_post_sender {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.sender__ava {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.sender__textarea {
+  height: 20px;
+  flex-basis: 80%;
+  font-size: 0.9em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+  overflow: auto;
+  resize: none;
+}
+
+.sender__add {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.sender__send {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+/* Ava */
+.main_right__ava {
+  padding: 5px;
+  height: 400px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* menu */
+.main_right_menu {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.main_right_menu__img {
+  object-fit: cover;
+  height: 70px;
+  width: 70px;
+}
+.main_right_menu_department {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* More */
+
+.text_lightgray {
+  color: lightgray;
+}
+
+.main_right_message__text {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+
+/*
+@media screen and (max-width: 650px) {
+  .person {
+    grid-template-columns: 1fr;
+  }
+}
+*/
+/* Portrait modes */
+/*
+@media screen and (max-width: 650px) {
+  .card_header {
+    margin: 16px 16px;
+  }
+
+  .card_header .card__title {
+    font-size: 30px;
+  }
+
+  .card_person {
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    width: 80%;
+  }
+
+  .card_person .card__img {
+    width: 100px;
+    height: 100px;
+    grid-row: span 2 / auto;
+  }
+
+  .card_person .card__title {
+    align-self: end;
+  }
+
+  .card_person .card__title,
+  .card_person .card__description {
+    text-align: left;
+  }
+*/
+
+/* Shadow behind card */
+/*
+  .card_person:hover:after {
+    height: calc(100% - 40px);
+    bottom: 16px;
+  }
+}
+*/
