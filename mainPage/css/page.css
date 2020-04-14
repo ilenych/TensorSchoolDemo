@@ -124,7 +124,7 @@ body {
   border-radius: 4px;
 }
 
-/* Post */
+/* Post */ 
 .main_left_post {
   padding: 10px 10px;
 }
@@ -176,6 +176,9 @@ body {
   height: 2px;
   margin: 10px;
   background-color: lightgray;
+}
+.content__text {
+  align-self: flex-start;
 }
 
 .content__img {
@@ -296,23 +299,28 @@ body {
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: tomato;
 }
 .main_right_menu__img {
   object-fit: cover;
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-  border-width: 2px;
+  height: 70px;
+  width: 70px;
 }
 .main_right_menu_department {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
+  align-items: center;
 }
 
 /* More */
 
 .text_lightgray {
   color: lightgray;
+}
+
+.main_right_message__text {
+  font-size: 1.1em;
+  margin-bottom: 10px;
 }
 
 
