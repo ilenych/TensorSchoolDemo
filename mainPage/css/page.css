@@ -8,8 +8,6 @@ body {
   background-color: #d1cccd;
   font-size: 14px;
   cursor: default;
-  /* flex-direction: column; */
-  /* align-items: center; */
 }
 
 /* Header card blok modfier */
@@ -37,7 +35,6 @@ body {
   object-fit: cover;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
 }
 
 .header__img {
@@ -52,29 +49,28 @@ body {
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1000px;
-  /* background-color: yellow; */
 }
 
 .main_left {
-  /* background-color: rebeccapurple; */
   flex-basis: 66%;
   margin-right: 10px;
 }
 
 .main_right {
-  /* background-color: violet; */
   flex-grow: 1;
 }
 
 /* Main card block modfier */
 
-/* block1 */
-.block1 {
+/* backroundBlock */
+.backroundBlock {
   margin: 10px 0;
   padding: 8px 10px;
   background-color: white;
   border-radius: 4px;
 }
+
+/* LEFT BLOCK */
 
 /* About */
 .main_left_about {
@@ -243,7 +239,6 @@ body {
   margin-top: 5px;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   grid-row: span 3 / auto;
   align-self: start;
 }
@@ -259,7 +254,6 @@ body {
 .sender__ava {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
 }
 
 .sender__textarea {
@@ -285,6 +279,8 @@ body {
   cursor: pointer;
 }
 
+/* RIGHT BLOCK */
+
 /* Ava */
 .main_right__ava {
   padding: 5px;
@@ -294,7 +290,7 @@ body {
   border-radius: 8px;
 }
 
-/* menu */
+/* Menu */
 .main_right_menu {
   display: grid;
   justify-content: center;
@@ -312,63 +308,24 @@ body {
   align-items: center;
 }
 
-/* More */
-
-.text_lightgray {
-  color: lightgray;
-}
+/* Message */
 
 .main_right_message__text {
   font-size: 1.1em;
   margin-bottom: 10px;
 }
 
+/* More */
 
-/*
-@media screen and (max-width: 650px) {
-  .person {
-    grid-template-columns: 1fr;
-  }
+.text_lightgray {
+  color: lightgray;
 }
-*/
-/* Portrait modes */
-/*
-@media screen and (max-width: 650px) {
-  .card_header {
-    margin: 16px 16px;
-  }
 
-  .card_header .card__title {
-    font-size: 30px;
-  }
-
-  .card_person {
-    display: grid;
-    grid-template-columns: 116px 1fr;
-    width: 80%;
-  }
-
-  .card_person .card__img {
-    width: 100px;
-    height: 100px;
-    grid-row: span 2 / auto;
-  }
-
-  .card_person .card__title {
-    align-self: end;
-  }
-
-  .card_person .card__title,
-  .card_person .card__description {
-    text-align: left;
-  }
-*/
-
-/* Shadow behind card */
-/*
-  .card_person:hover:after {
-    height: calc(100% - 40px);
-    bottom: 16px;
-  }
+.img__round {
+  border-radius: 50%;
 }
-*/
+
+
+
+
+
